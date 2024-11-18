@@ -24,6 +24,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Grant execute permission for gradle
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v.2.6.0
+        with:
+          arguments: build
+
 
       # AWS에 로그인
       - name: AWS Credentials
